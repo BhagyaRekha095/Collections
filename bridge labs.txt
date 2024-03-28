@@ -1,0 +1,1171 @@
+friends names revers
+public class PrintFriendsNames {
+    public static void main(String[] args) {
+        printGreetings("Mahesh", "Suresh", "Devesh");
+    }
+
+    public static void printGreetings(String friend1, String friend2, String friend3) {
+       
+        String[] reversedFriends = {friend3, friend2, friend1};
+
+
+        String message = "Hi " + String.join(", ", reversedFriends[0], reversedFriends[1]) + " and " + reversedFriends[2];
+
+
+        System.out.println(message);
+    }
+}
+====================================================================================
+chooises the months namess
+=============================================================================
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class CheckTheSeason {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Continue until a valid month number is entered
+        int monthNumber;
+        while (true) {
+            try {
+                // Get the month number from the user
+                System.out.print("Enter the month number (1 to 12): ");
+                monthNumber = scanner.nextInt();
+
+                // Check if the month number is in the valid range
+                if (monthNumber < 1 || monthNumber > 12) {
+                    throw new IllegalArgumentException("Month number must be between 1 and 12.");
+                }
+
+                // Break the loop if a valid month number is entered
+                break;
+
+            } catch (InputMismatchException e) {
+                // Handle non-integer input
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.nextLine(); // Consume the invalid input
+            } catch (IllegalArgumentException e) {
+                // Handle invalid month number
+                System.out.println(e.getMessage());
+            }
+        }
+
+        // Determine and print the season based on the month number
+        String season = getSeason(monthNumber);
+        System.out.println("The season for month " + monthNumber + " is: " + season);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    private static String getSeason(int monthNumber) {
+        // Determine the season based on the month number
+        switch (monthNumber) {
+            case 2:
+            case 3:
+                return "Vasanta";
+            case 4:
+            case 5:
+                return "Grishma / Summer";
+            case 6:
+            case 7:
+                return "Monsoon / Rainy";
+            case 8:
+            case 9:
+                return "Sharada";
+            case 10:
+            case 11:
+                return "Hemanta";
+            case 12:
+            case 1:
+                return "Shishira / Winter";
+            default:
+                return "Invalid month number";
+        }
+    }
+}
+
+=======================================================================
+
+
+Qudriatic
+=========================================================================================
+import java.util.Scanner;
+
+public class Quadratic {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the input values for the quadratic equation
+        System.out.print("Enter the value of a: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Enter the value of b: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Enter the value of c: ");
+        double c = scanner.nextDouble();
+
+        // Calculate the discriminant (delta)
+        double delta = b * b - 4 * a * c;
+
+        // Check if the roots are real or complex
+        if (delta > 0) {
+            // Two real and distinct roots
+            double root1 = (-b + Math.sqrt(delta)) / (2 * a);
+            double root2 = (-b - Math.sqrt(delta)) / (2 * a);
+            System.out.println("Root 1: " + root1);
+            System.out.println("Root 2: " + root2);
+        } else if (delta == 0) {
+            // One real and equal root
+            double root = -b / (2 * a);
+            System.out.println("Root: " + root);
+        } else {
+            // Complex roots
+            double realPart = -b / (2 * a);
+            double imaginaryPart = Math.sqrt(Math.abs(delta)) / (2 * a);
+            System.out.println("Root 1: " + realPart + " + " + imaginaryPart + "i");
+            System.out.println("Root 2: " + realPart + " - " + imaginaryPart + "i");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+=====================================================================================================
+Celsius to fahrenheit
+=======================================================================================
+import java.util.Scanner;
+
+public class TemperatureConversion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose the conversion type:");
+        System.out.println("1. Celsius to Fahrenheit");
+        System.out.println("2. Fahrenheit to Celsius");
+        System.out.print("Enter your choice (1 or 2): ");
+
+        int choice = scanner.nextInt();
+
+        if (choice == 1) {
+            // Celsius to Fahrenheit conversion
+            System.out.print("Enter temperature in Celsius: ");
+            double celsius = scanner.nextDouble();
+            double fahrenheit = celsiusToFahrenheit(celsius);
+            System.out.println(celsius + " Celsius is equal to " + fahrenheit + " Fahrenheit.");
+        } else if (choice == 2) {
+            // Fahrenheit to Celsius conversion
+            System.out.print("Enter temperature in Fahrenheit: ");
+            double fahrenheit = scanner.nextDouble();
+            double celsius = fahrenheitToCelsius(fahrenheit);
+            System.out.println(fahrenheit + " Fahrenheit is equal to " + celsius + " Celsius.");
+        } else {
+            System.out.println("Invalid choice. Please enter 1 or 2.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    private static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    private static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+}
+===============================================================================================
+Write a program which converts each character of an input string as an ASCII
+value and stores each of these numbers in an array. Print that array
+==============================================================================================================================================
+import java.util.Scanner;
+
+public class AsciiConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get input string from the user
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        // Convert each character to ASCII and store in an array
+        int[] asciiArray = convertToAsciiArray(inputString);
+
+        // Print the ASCII array
+        System.out.print("ASCII values of characters in the input string: ");
+        for (int value : asciiArray) {
+            System.out.print(value + " ");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    private static int[] convertToAsciiArray(String inputString) {
+        int[] asciiArray = new int[inputString.length()];
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char character = inputString.charAt(i);
+            int asciiValue = (int) character;
+            asciiArray[i] = asciiValue;
+        }
+
+        return asciiArray;
+    }
+}
+====================================================================
+Ranges
+======================================================================================
+import java.util.Scanner;
+
+public class PrimeNumbersInRange {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the starting number of the range: ");
+        int start = scanner.nextInt();
+        System.out.print("Enter the ending number of the range: ");
+        int end = scanner.nextInt();
+        System.out.println("Prime numbers in the range [" + start + ", " + end + "]:");
+        printPrimeNumbers(start, end);
+        scanner.close();
+    }
+
+    private static void printPrimeNumbers(int start, int end)
+      {
+        for (int i = start; i <= end; i++)
+           {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println(); // Move to the next line after printing prime numbers
+    }
+
+    private static boolean isPrime(int number)
+     {
+        if (number <= 1)
+         {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++)
+           {
+            if (number % i == 0)
+            {
+                return false; // It's not a prime number if it has a divisor other than 1 and itself
+            }
+        }
+
+        return true; // It's a prime number if no divisor other than 1 and itself is found
+    }
+}
+============================================================================================================================
+ powerof2
+=====================================================================================================================
+public class PowerOf2 {
+    public static void main(String[] args) {
+     
+        if (args.length != 1) {
+            System.out.println("Usage: java PowerOf2 <n>");
+            System.exit(1); // Terminate the program
+        }
+
+      
+        int n = Integer.parseInt(args[0]);
+
+        // Print the table of powers of 2
+        System.out.println("Powers of 2 less than or equal to 2^" + n + ":");
+        printPowersOf2(n);
+    }
+
+    private static void printPowersOf2(int n) {
+        for (int i = 0; i <= n; i++) {
+            int powerOf2 = (int) Math.pow(2, i);
+            System.out.println("2^" + i + " = " + powerOf2);
+        }
+    }
+}
+-===============================================-=====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+common elemtes
+======================================================================================
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        // Example usage
+        String[] array1 = {"apple", "banana", "orange", "kiwi"};
+        String[] array2 = {"banana", "grape", "kiwi", "pear"};
+
+        String[] commonElements = findCommonElements(array1, array2);
+
+        // Print the common elements
+        System.out.println("Common elements between the two arrays:");
+        System.out.println(Arrays.toString(commonElements));
+    }
+
+    private static String[] findCommonElements(String[] array1, String[] array2) {
+        // Convert arrays to ArrayList for easier intersection operation
+        ArrayList<String> list1 = new ArrayList<>(Arrays.asList(array1));
+        ArrayList<String> list2 = new ArrayList<>(Arrays.asList(array2));
+
+        // Find the common elements
+        list1.retainAll(list2);
+
+        // Convert the result back to an array
+        String[] commonElements = new String[list1.size()];
+        commonElements = list1.toArray(commonElements);
+
+        return commonElements;
+    }
+}
+========================================================================
+Write a program to find the second smallest element in an integer array
+========================================================================================
+public class SecondSmallestElement {
+    public static void main(String[] args) {
+        // Example usage
+        int[] array = {5, 2, 8, 1, 9, 3, 6, 4};
+
+        int secondSmallest = findSecondSmallest(array);
+
+        // Print the second smallest element
+        System.out.println("The second smallest element in the array is: " + secondSmallest);
+    }
+
+    private static int findSecondSmallest(int[] array) {
+        if (array.length < 2) {
+            System.out.println("Array should have at least two elements.");
+            return -1; // Return a sentinel value indicating an error
+        }
+
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for (int value : array) {
+            if (value < smallest) {
+                // Update both smallest and secondSmallest
+                secondSmallest = smallest;
+                smallest = value;
+            } else if (value < secondSmallest && value != smallest) {
+                // Update only secondSmallest
+                secondSmallest = value;
+            }
+        }
+
+        if (secondSmallest == Integer.MAX_VALUE) {
+            System.out.println("All elements in the array are the same.");
+            return -1; // Return a sentinel value indicating an error
+        }
+
+        return secondSmallest;
+    }
+}
+====================================================================
+Write a method to check if two strings are equal or not. If the second string’s size
+is more than the first it returns -1. Else it compares character by character. If
+equals it returns 0. Else it returns the position wrt the first character where the
+difference is found.
+===============================================================================================
+public class StringComparator {
+    public static void main(String[] args) {
+        // Example usage
+        String str1 = "hello";
+        String str2 = "hella";
+
+        int result = compareStrings(str1, str2);
+
+        if (result == 0) {
+            System.out.println("The strings are equal.");
+        } else if (result == -1) {
+            System.out.println("Second string size is greater than the first.");
+        } else {
+            System.out.println("The strings differ at position: " + result);
+        }
+    }
+
+    private static int compareStrings(String str1, String str2) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+
+        // Compare string sizes
+        if (len2 > len1) {
+            return -1;
+        }
+
+        // Compare character by character
+        for (int i = 0; i < len2; i++) {
+            if (str1.charAt(i) != str2.charAt(i)) {
+                return i;
+            }
+        }
+
+        // Check if the strings are equal
+        return len1 == len2 ? 0 : len2;
+    }
+}
+================================================================================================
+Write a program SumOfTwoDice that prints the sum of two random integers
+between 1 and 6 (such as you might get when rolling dice).
+========================================================================================
+import java.util.Random;
+
+public class SumOfTwoDice {
+    public static void main(String[] args)
+     {
+        int die1 = rollDie();
+        int die2 = rollDie();
+        int sum = die1 + die2;
+        System.out.println("Outcome of the first die: " + die1);
+        System.out.println("Outcome of the second die: " + die2);
+        System.out.println("Sum of the two dice: " + sum);
+    }
+
+    private static int rollDie() {
+       
+        Random random = new Random();
+        return random.nextInt(6) + 1;
+    }
+}
+=========================================================================================
+Write a program to compute the area of a rectangle by creating a class named
+'Rectangle' having two methods. First method named as 'setDim' takes length
+and breadth of the rectangle as parameters and the second method named as
+'getArea' returns the area of the rectangle. Length and breadth of rectangle are
+entered through the keyboard.
+Plan creating 2 rectangle objects, provide dimensions of them and then check
+which one has the higher area.
+=======================================================================================================
+import java.util.Scanner;
+
+class Rectangle {
+    private double length;
+    private double breadth;
+
+    // Method to set dimensions
+    public void setDim(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    // Method to calculate the area
+    public double getArea() {
+        return length * breadth;
+    }
+}
+
+public class RectangleAreaComparison {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Create two Rectangle objects
+        Rectangle rectangle1 = new Rectangle();
+        Rectangle rectangle2 = new Rectangle();
+
+        // Set dimensions for the first rectangle
+        System.out.println("Enter dimensions for the first rectangle:");
+        System.out.print("Length: ");
+        double length1 = scanner.nextDouble();
+        System.out.print("Breadth: ");
+        double breadth1 = scanner.nextDouble();
+        rectangle1.setDim(length1, breadth1);
+
+        // Set dimensions for the second rectangle
+        System.out.println("\nEnter dimensions for the second rectangle:");
+        System.out.print("Length: ");
+        double length2 = scanner.nextDouble();
+        System.out.print("Breadth: ");
+        double breadth2 = scanner.nextDouble();
+        rectangle2.setDim(length2, breadth2);
+
+        // Calculate and compare the areas
+        double area1 = rectangle1.getArea();
+        double area2 = rectangle2.getArea();
+
+        System.out.println("\nArea of the first rectangle: " + area1);
+        System.out.println("Area of the second rectangle: " + area2);
+
+        if (area1 > area2) {
+            System.out.println("The first rectangle has a higher area.");
+        } else if (area2 > area1) {
+            System.out.println("The second rectangle has a higher area.");
+        } else {
+            System.out.println("Both rectangles have the same area.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+=================================================================================
+ Stock Report
+a. Desc -> Write a program to read in Stock Names, Number of Share, Share Price.
+Print a Stock Report with total value of each Stock and the total value of Stock.
+b. I/P -> N number of Stocks, for Each Stock Read In the Share Name, Number of
+Share, and Share Price
+c. Logic -> Calculate the value of each stock and the total value
+d. O/P -> Print the Stock Report.
+e. Hint -> Create Stock and Stock Portfolio Class holding the list of Stocks read
+from the input file. Have functions in the Class to calculate the value of each
+stock and the value of total stocks=
+
+
+=====================================================================================================
+import java.util.Scanner;
+
+class Stock {
+    private String stockName;
+    private int numberOfShares;
+    private double sharePrice;
+
+    // Parameterized constructor
+    public Stock(String stockName, int numberOfShares, double sharePrice) {
+        this.stockName = stockName;
+        this.numberOfShares = numberOfShares;
+        this.sharePrice = sharePrice;
+    }
+
+    // Method to calculate the value of a stock
+    public double calculateStockValue() {
+        return numberOfShares * sharePrice;
+    }
+
+    // Getters for stock details
+    public String getStockName() {
+        return stockName;
+    }
+
+    public int getNumberOfShares() {
+        return numberOfShares;
+    }
+
+    public double getSharePrice() {
+        return sharePrice;
+    }
+}
+
+class StockPortfolio {
+    private Stock[] stocks;
+
+    // Parameterized constructor
+    public StockPortfolio(int numberOfStocks) {
+        stocks = new Stock[numberOfStocks];
+    }
+
+    // Method to add a stock to the portfolio
+    public void addStock(int index, String stockName, int numberOfShares, double sharePrice) {
+        stocks[index] = new Stock(stockName, numberOfShares, sharePrice);
+    }
+
+    // Method to calculate the total value of all stocks in the portfolio
+    public double calculateTotalPortfolioValue() {
+        double totalValue = 0;
+        for (Stock stock : stocks) {
+            totalValue += stock.calculateStockValue();
+        }
+        return totalValue;
+    }
+
+    // Method to print the stock report
+    public void printStockReport() {
+        System.out.println("Stock Report:");
+        System.out.printf("%-15s %-20s %-15s %-15s%n", "Stock Name", "Number of Shares", "Share Price", "Stock Value");
+        System.out.println("------------------------------------------------------");
+
+        for (Stock stock : stocks) {
+            System.out.printf("%-15s %-20d %-15.2f %-15.2f%n",
+                    stock.getStockName(),
+                    stock.getNumberOfShares(),
+                    stock.getSharePrice(),
+                    stock.calculateStockValue());
+        }
+
+        System.out.println("------------------------------------------------------");
+        System.out.printf("%-50s %.2f%n", "Total Portfolio Value:", calculateTotalPortfolioValue());
+    }
+}
+
+public class StockReport {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the number of stocks
+        System.out.print("Enter the number of stocks: ");
+        int numberOfStocks = scanner.nextInt();
+
+        // Create a StockPortfolio object
+        StockPortfolio stockPortfolio = new StockPortfolio(numberOfStocks);
+
+        // Read stock details for each stock
+        for (int i = 0; i < numberOfStocks; i++) {
+            System.out.println("\nEnter details for Stock " + (i + 1) + ":");
+            System.out.print("Stock Name: ");
+            String stockName = scanner.next();
+
+            System.out.print("Number of Shares: ");
+            int numberOfShares = scanner.nextInt();
+
+            System.out.print("Share Price: ");
+            double sharePrice = scanner.nextDouble();
+
+            // Add the stock to the portfolio
+            stockPortfolio.addStock(i, stockName, numberOfShares, sharePrice);
+        }
+
+        // Print the stock report
+        stockPortfolio.printStockReport();
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+=======================================================================
+Inventory Management Problem
+a. Desc -> Extend the above program to Create InventoryManager to manage the
+Inventory. The Inventory Manager will use InventoryFactory to create Inventory
+Object from JSON. The InventoryManager will call each Inventory Object in its list
+to calculate the Inventory Price and then call the Inventory Object to return the
+JSON String. The main program will be with InventoryManager
+b. I/P -> read in JSON File
+c. Logic -> Get JSON Object in Java or NSDictionary in iOS. Create Inventory
+Object from JSON. Calculate the value for every Inventory.
+d. O/P -> Create the JSON from Inventory Object and output the JSON String.
+==============================================================================================
+import java.io.FileReader;
+import java.util.ArrayList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+class Inventory {
+    private String name;
+    private double pricePerKg;
+    private double weight;
+
+    // Parameterized constructor
+    public Inventory(String name, double pricePerKg, double weight) {
+        this.name = name;
+        this.pricePerKg = pricePerKg;
+        this.weight = weight;
+    }
+
+    // Method to calculate the value of the inventory
+    public double calculateInventoryValue() {
+        return pricePerKg * weight;
+    }
+
+    // Method to convert Inventory object to JSON string
+    public String toJSONString() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Name", name);
+        jsonObject.put("PricePerKg", pricePerKg);
+        jsonObject.put("Weight", weight);
+        return jsonObject.toJSONString();
+    }
+}
+
+class InventoryFactory {
+    // Method to create Inventory object from JSON
+    public static Inventory createInventoryFromJSON(JSONObject jsonInventory) {
+        String name = (String) jsonInventory.get("Name");
+        double pricePerKg = (double) jsonInventory.get("PricePerKg");
+        double weight = (double) jsonInventory.get("Weight");
+        return new Inventory(name, pricePerKg, weight);
+    }
+}
+
+class InventoryManager {
+    private ArrayList<Inventory> inventoryList;
+
+    // Parameterized constructor
+    public InventoryManager() {
+        inventoryList = new ArrayList<>();
+    }
+
+    // Method to add inventory to the manager
+    public void addInventory(Inventory inventory) {
+        inventoryList.add(inventory);
+    }
+
+    // Method to calculate the total value of all inventories
+    public double calculateTotalInventoryValue() {
+        double totalValue = 0;
+        for (Inventory inventory : inventoryList) {
+            totalValue += inventory.calculateInventoryValue();
+        }
+        return totalValue;
+    }
+
+    // Method to generate JSON string for all inventories
+    public String generateJSONString() {
+        JSONArray jsonArray = new JSONArray();
+        for (Inventory inventory : inventoryList) {
+            jsonArray.add(inventory.toJSONString());
+        }
+        return jsonArray.toJSONString();
+    }
+}
+
+public class InventoryManagementApp {
+    public static void main(String[] args) {
+        JSONParser jsonParser = new JSONParser();
+
+        try {
+            // Read JSON file and parse into JSONArray
+            Object obj = jsonParser.parse(new FileReader("inventory.json"));
+            JSONArray inventoryArray = (JSONArray) obj;
+
+            // Create InventoryManager and add each inventory to it
+            InventoryManager inventoryManager = new InventoryManager();
+            for (Object inventoryObj : inventoryArray) {
+                JSONObject jsonInventory = (JSONObject) inventoryObj;
+                Inventory inventory = InventoryFactory.createInventoryFromJSON(jsonInventory);
+                inventoryManager.addInventory(inventory);
+            }
+
+            // Calculate and print the total value of all inventories
+            System.out.println("Total value of all inventories: $" + inventoryManager.calculateTotalInventoryValue());
+
+            // Generate and print the JSON string for all inventories
+            String jsonString = inventoryManager.generateJSONString();
+            System.out.println("\nInventory JSON String:\n" + jsonString);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+===============================================================================
+ Write a program to where it takes 10 integer numbers from a user, puts them in
+an array and then through Bubble sort, sorts this array. Input taking and forming
+an array should be one method and sorting should be other method.
+=======================================================================================================
+import java.util.Scanner;
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] numbers = new int[10];
+
+        // Take input and form an array
+        getInput(numbers);
+
+        // Print the unsorted array
+        System.out.println("Unsorted Array:");
+        printArray(numbers);
+
+        // Sort the array using Bubble Sort
+        bubbleSort(numbers);
+
+        // Print the sorted array
+        System.out.println("\nSorted Array:");
+        printArray(numbers);
+    }
+
+    // Method to take input and form an array
+    private static void getInput(int[] array) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 10 integer numbers:");
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Enter number #" + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Method to print an array
+    private static void printArray(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
+        }
+        System.out.println(); // Move to the next line after printing the array
+    }
+
+    // Method to perform Bubble Sort on an array
+    private static void bubbleSort(int[] array) {
+        int n = array.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap array[j] and array[j+1]
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+===========================================================================
+ Write a program to sort data using two algorithms and compare the performance.
+a. Generate 100,000 random floating point numbers 1.0 to 100.0 Keep these
+numbers in an array.
+b. Sort this array using Selection Sort and
+c. Sort with Quick Sort.
+d. Compute the time of execution for both the algorithms in mili-seconds.
+e. Check which one is faster and by what percentage?
+f. Number generation, Sorting algos and performance comparisons should
+be different methods.
+============================================================================================
+import java.util.Arrays;
+import java.util.Random;
+
+public class SortingComparison {
+    public static void main(String[] args) {
+        int arraySize = 100000;
+        double[] randomNumbers = generateRandomNumbers(arraySize);
+
+        // Clone the array for sorting with different algorithms
+        double[] selectionSortArray = randomNumbers.clone();
+        double[] quickSortArray = randomNumbers.clone();
+
+        // Perform selection sort and measure the time
+        long startTimeSelectionSort = System.currentTimeMillis();
+        selectionSort(selectionSortArray);
+        long endTimeSelectionSort = System.currentTimeMillis();
+        long elapsedTimeSelectionSort = endTimeSelectionSort - startTimeSelectionSort;
+
+        // Perform quick sort and measure the time
+        long startTimeQuickSort = System.currentTimeMillis();
+        quickSort(quickSortArray, 0, arraySize - 1);
+        long endTimeQuickSort = System.currentTimeMillis();
+        long elapsedTimeQuickSort = endTimeQuickSort - startTimeQuickSort;
+
+        // Print the execution time for both sorting algorithms
+        System.out.println("Selection Sort Execution Time: " + elapsedTimeSelectionSort + " milliseconds");
+        System.out.println("Quick Sort Execution Time: " + elapsedTimeQuickSort + " milliseconds");
+
+        // Compare and print the percentage difference in execution time
+        double percentageDifference = ((double) (elapsedTimeQuickSort - elapsedTimeSelectionSort) / elapsedTimeSelectionSort) * 100;
+        System.out.printf("Quick Sort is %.2f%% faster than Selection Sort.%n", Math.abs(percentageDifference));
+    }
+
+    // Method to generate an array of random floating-point numbers
+    private static double[] generateRandomNumbers(int size) {
+        double[] randomNumbers = new double[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            randomNumbers[i] = 1.0 + (random.nextDouble() * 99.0);
+        }
+
+        return randomNumbers;
+    }
+
+    // Method to perform Selection Sort
+    private static void selectionSort(double[] array) {
+        int n = array.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap array[i] and array[minIndex]
+            double temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+    }
+
+    // Method to perform Quick Sort
+    private static void quickSort(double[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
+
+            // Recursively sort the two halves
+            quickSort(array, low, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, high);
+        }
+    }
+
+    private static int partition(double[] array, int low, int high) {
+        double pivot = array[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (array[j] <= pivot) {
+                i++;
+
+                // Swap array[i] and array[j]
+                double temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+
+        // Swap array[i+1] and array[high] (pivot)
+        double temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+
+        return i + 1;
+    }
+}
+============================================================
+Given a sorted array of n integers and a target value, determine if the target
+exists in the array using the binary search algorithm. If the target exists in the
+array, print the index of it.
+eg.
+Input array : 2, 3, 5, 7, 9
+Target : 7
+Output : Element found at Index 3
+Input array : 1, 4, 5, 8, 9
+Target : 7
+Output : Element Not Found
+===================================================================================================
+import java.util.Arrays;
+
+public class BinarySearch {
+    public static void main(String[] args) {
+        int[] array1 = {2, 3, 5, 7, 9};
+        int target1 = 7;
+        binarySearchAndPrint(array1, target1);
+
+        int[] array2 = {1, 4, 5, 8, 9};
+        int target2 = 7;
+        binarySearchAndPrint(array2, target2);
+    }
+
+    // Method to perform binary search and print the result
+    private static void binarySearchAndPrint(int[] array, int target) {
+        System.out.println("Input array: " + Arrays.toString(array));
+        System.out.println("Target: " + target);
+
+        int result = binarySearch(array, target);
+
+        if (result != -1) {
+            System.out.println("Output: Element found at Index " + result);
+        } else {
+            System.out.println("Output: Element Not Found");
+        }
+
+        System.out.println(); // Adding a newline for better readability
+    }
+
+    // Binary search algorithm
+    private static int binarySearch(int[] array, int target) {
+        int low = 0;
+        int high = array.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (array[mid] == target) {
+                return mid; // Target found, return the index
+            } else if (array[mid] < target) {
+                low = mid + 1; // If target is greater, ignore the left half
+            } else {
+                high = mid - 1; // If target is smaller, ignore the right half
+            }
+        }
+
+        return -1; // Target not found in the array
+    }
+}
+============================================================================
+ List Handling:
+a. Desc -> Read the Text from a file, split it into words and arrange it as Linked List.
+Take a user input to search a Word in the List. If the Word is not found then add it
+to the list, and if it found then remove the word from the List. In the end save the
+list into a file
+b. I/P -> Read from file the list of Words and take user input to search a Text
+c. Logic -> Create a Unordered Linked List. The Basic Building Block is the Node
+Object. Each node object must hold at least two pieces of information. One ref to
+the data field and second the ref to the next node object.
+d. O/P -> The List of Words to a File.
+=====================================================================================================
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+class WordLinkedList {
+    LinkedList<String> wordList;
+
+    // Constructor
+    public WordLinkedList() {
+        wordList = new LinkedList<>();
+    }
+
+    // Method to read text from a file, split into words, and arrange as a linked list
+    public void readFromFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    wordList.add(word.toLowerCase()); // Convert to lowercase for case-insensitive search
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Method to search a word in the list, add if not found, and remove if found
+    public void searchAndUpdateList(String searchWord) {
+        if (wordList.contains(searchWord.toLowerCase())) {
+            wordList.remove(searchWord.toLowerCase());
+            System.out.println("Word found and removed from the list.");
+        } else {
+            wordList.add(searchWord.toLowerCase());
+            System.out.println("Word not found, added to the list.");
+        }
+    }
+
+    // Method to save the updated list to a file
+    public void saveToFile(String filePath) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (String word : wordList) {
+                writer.write(word + " ");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+=======================================================================================
+public class WordListHandling {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        WordLinkedList wordLinkedList = new WordLinkedList();
+
+        // Specify the file path
+        String filePath = "wordList.txt";
+
+        // Read from file and create linked list
+        wordLinkedList.readFromFile(filePath);
+
+        // Print the initial word list
+        System.out.println("Initial Word List:");
+        System.out.println(wordLinkedList.wordList);
+
+        // Take user input to search a word
+        System.out.print("\nEnter a word to search in the list: ");
+        String searchWord = scanner.next();
+
+        // Search and update the list
+        wordLinkedList.searchAndUpdateList(searchWord);
+
+        // Print the updated word list
+        System.out.println("\nUpdated Word List:");
+        System.out.println(wordLinkedList.wordList);
+
+        // Save the updated list to the file
+        wordLinkedList.saveToFile(filePath);
+        System.out.println("Updated word list saved to " + filePath);
+
+        scanner.close();
+    }
+}
+
+=======================================================================================================================================================================
+
+Day #1
+1. PrintOrderDetails Write a program that takes an order ID, item name, quantity, 
+and total cost as command line arguments and prints a sentence like "Order [ID]: 
+[Quantity] of [Item] for a total of Rs [Cost]. 
+
+2. ComputeMarks Write a program which takes the student name, Physics, 
+Chemistry and Mathematics Marks of a student as input. For each subject, marks 
+are out of 100. Compute the total marks of that student, percentage in each 
+subject and total percentage. 
+
+Print the out as “[Student Name] obtained following % of marks in PCM: 
+Physics: [% in Physics ], Chemistry : [% in Chem], Maths : [% in Maths] 
+Total : [Total %]” .
+
+3. Weight Conversion In some UK shops grocery items sold are weighed in pounds. 
+Plan developing a program which converts the item weight in KG. 
+Where 1 Pound = 453.592 gm 
+Test this with entering different input in pounds and print the weight in KG .
+
+4. Time conversion Develop a program which converts input seconds in hours and 
+minutes and seconds. 
+Eg. 7515 seconds = 2 Hours, 5 minutes and 15 seconds .
+
+5. Speed Conversion Create a program that converts speed given in kilometers per 
+hour (km/h) to meters per second (m/s) or vice versa. 
+Use the conversion factor: m/s = km/h * 1000 / 3600 .
+
+6. Write a program Quadratic to find the roots of the equation a*x*x + b*x + c. Since
+the equation is x*x, hence there are 2 roots. The 2 roots of the equation can be 
+found using a formula 
+a. delta = b*b - 4*a*c 
+b. Root 1 of x = (-b + sqrt(delta))/(2*a) 
+c. Root 2 of x = (-b - sqrt(delta))/(2*a) 
+d. Take a, b, and c as input values to find the roots of x. 
+
+7. Write a program SumOfTwoDice that prints the sum of two random integers
+between 1 and 6 (such as you might get when rolling dice).
+
+8. RandomOperatorMath Write a program that generates two random integers 
+between 1 and 10 and a random arithmetic operator (+, -, *, or /), then prints the 
+equation and the result of the operation.
+=========================================================================================================================================
+multithreading:-
+================
+Overall, multithreading is a powerful technique for improving the performance and efficiency of software by taking advantage of modern multi-core processors and enabling programs to execute multiple tasks in parallel. However, it also introduces complexities related to thread synchronization and management, which need to be carefully handled to ensure correct and reliable operation.
+Advantages of multiThreading:-
+=============================
+1.Improved Performance
+2.Concurrency
+3.Responsiveness
+4.Resource Sharing
+5.Parallelism
+6.Scalability
+7.Simplified Code
+8.Faster I/O Operations
+9.Reduced Execution Time
+10.Flexibility
+Program:-
+========
+public class Multithreading
+{
+    public static void main(String[] args) 
+    {
+        Thread thread1 = new Thread(new MyThread(1));
+        thread1.start();
+        Thread thread2 = new Thread(new MyThread(2));
+        thread2.start();
+    }
+}
+
+class MyThread implements Runnable
+ {
+    private int threadNumber;
+
+    public MyThread(int number)
+ {
+        this.threadNumber = number;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++)
+ {
+            System.out.println("Thread " + threadNumber + ": Count " + i);
+
+            try
+             {
+                Thread.sleep(1000); 
+              }
+         catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
