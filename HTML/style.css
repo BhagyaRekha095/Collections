@@ -1,0 +1,135 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.navbar{
+    background-color: cadetblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height:70px;
+    border-top: 10px solid brown;
+    border-bottom: 10px solid brown;
+    padding: 10px;
+}
+.nav{
+    display: flex;
+    list-style: none;
+}
+.nav li{
+    margin-right: 40px;
+}
+.nav a{
+    text-decoration: none;
+    font-family:sans-serif;
+    font-size: 25px;
+    color: wheat;
+    font-style: italic;
+}
+.logo{ 
+    margin: 70px 0px 20px 50px;
+    
+}
+.special-burger img{
+    display: block;
+    margin: auto;
+}
+.retro-content{
+    padding-left: 50px;
+}
+.retro-content h1{
+    color: cadetblue;
+    font-family: cursive;
+    margin-bottom: 20px;
+}
+.retro-content p{
+    font-size:large;
+    word-spacing:5px;
+    font-family:cursive ;
+    color: black;
+}
+.special-food img{
+    border: 10px solid brown;
+    border-radius:7px ;
+}
+.special-food{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+}
+.footer{
+    background-color:cadetblue;
+    border-bottom: 10px solid brown;
+    border-top: 10px solid brown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.delivery{
+    font-size: large;
+    font-style: italic;
+    color: aliceblue;
+    padding: 10px 10px;
+}
+.footer-links{
+    padding: 10px 10px;
+    color:aliceblue ;
+    text-align: center;
+    padding: 10px 50px;
+    margin: 10px 20px 30px 30px;
+}
+.footer li{
+    display:inline-block;
+    list-style: none;
+   align-items: center;
+   padding: 10px 5px;
+}
+.footer-links a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.footer-links a:hover{
+      color: aliceblue;
+      cursor: pointer;
+      text-decoration: underline;
+}
+.btn-block button{
+    display: block;
+    padding: 5px 48px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0ch2px solid white;
+    background-color: brown;
+    border-radius: 10px;
+    font-family: cursive;
+    font-style: italic;
+    color: aliceblue;
+    font-size: 15px;
+}
+.btn-block input{
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid brown;
+} 
+.btn-block{
+    text-align: center;
+}
+.delivery img{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    border: 3px solid white;
+}
+.delivery img:hover{
+    cursor: pointer;
+}
+
+
+

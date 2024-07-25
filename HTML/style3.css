@@ -1,0 +1,174 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.navbar{
+    background-color: cadetblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height:70px;
+    border-top: 10px solid brown;
+    border-bottom: 10px solid brown;
+    padding: 10px;
+}
+.nav{
+    display: flex;
+    list-style: none;
+}
+.nav li{
+    margin-right: 40px;
+}
+.nav a{
+    text-decoration: none;
+    font-family:sans-serif;
+    font-size: 25px;
+    color: wheat;
+    font-style: italic;
+}
+.logo{ 
+    margin: 70px 0px 20px 50px;
+}
+.main{
+    
+    height: 800px;
+    width: 600px;
+    margin: 20px;
+    padding: 10px;
+    background-color:whitesmoke ;
+    border: 5px solid brown;
+    border-radius: 20px;
+    margin-left: 100px;
+    padding: 20px;
+   
+}
+.msd{
+    display: flex;
+    justify-content: space-around;
+}
+.main p{
+    padding: 10px;
+    font-family: cursive;
+     word-spacing: 5px;
+}
+.main input{
+    padding: 8px 30px;
+    margin: 5px;
+    
+}
+.main button{
+    padding: 10px 30px;
+     margin: 5px;
+      background: brown;
+       border: cadetblu; 
+       border-radius: 5px;
+}
+.nava{
+    padding: 20px 30px;
+    margin-left: 800px;
+    margin-top: -800px;
+    display: block;
+    justify-content: space-around;
+    
+
+}
+.nava p{
+    font-size: 20px;
+    word-spacing: 5px;
+    color: brown;
+    font-style:italic;
+    font-family: cursive;
+}
+.nava h1{
+    font-style:italic ;
+    color:cadetblue;
+}
+.nava button{
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: brown;
+    border: 3px solid cadetblue;
+    font-size: 20px;
+    font-style: italic;
+}
+.footer{
+    background-color:cadetblue;
+    border-bottom: 10px solid brown;
+    border-top: 10px solid brown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 450px;
+    }
+    .delivery{
+    font-size: large;
+    font-style: italic;
+    color: aliceblue;
+    padding: 10px 10px;
+    }
+    .footer-links{
+    padding: 10px 10px;
+    color:aliceblue ;
+    text-align: center;
+    padding: 10px 50px;
+    margin: 10px 20px 30px 30px;
+    }
+    .footer li{
+    display:inline-block;
+    list-style: none;
+    align-items: center;
+    padding: 10px 5px;
+    }
+    .footer-links a{
+    text-decoration: none;
+    color: aliceblue;
+    }
+    .footer-links a:hover{
+      color: aliceblue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .btn-block button{
+    display: block;
+    padding: 5px 48px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0ch2px solid white;
+    background-color: brown;
+    border-radius: 10px;
+    font-family: cursive;
+    font-style: italic;
+    color: aliceblue;
+    font-size: 15px;
+    }
+    .btn-block input{
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid brown;
+    } 
+    .btn-block{
+    text-align: center;
+    }
+    .delivery img{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    border: 3px solid white;
+    }
+    .delivery img:hover{
+    cursor: pointer;
+    }
+    .side{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    
+    
